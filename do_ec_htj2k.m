@@ -27,9 +27,9 @@ end
 
 j2kop = 'Creversible=yes Clevels=0 Cprecincts="{256,256}" Corder="RPCL"';
 if multithread == true
-    j2kop = sprintf("%s -numthread 0", j2kop);
+    j2kop = sprintf("%s -num_threads 0", j2kop);
 else
-    j2kop = sprintf("%s -numthread 1", j2kop);
+    j2kop = sprintf("%s -num_threads 1", j2kop);
 end
 
 for i = 1:16
