@@ -1,4 +1,4 @@
-function [numbytes, type] = do_ec_htj2k(type, TRANSFORMBLOCK, ohtj2kpath, multithread)
+function [numbytes, time] = do_ec_htj2k(type, TRANSFORMBLOCK, ohtj2kpath, multithread)
 %
 % Usage: [numbytes, time] = do_ec_htj2k(type, TRANSFORMBLOCK, path-to-codec)
 %
