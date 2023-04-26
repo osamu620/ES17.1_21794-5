@@ -19,6 +19,9 @@ end
 
 if nargin < 3
     ohtj2kpath = "/Users/osamu/Documents/Clone/WG1/OpenHTJ2K/build-relwithdebinfo/bin";
+end
+
+if nargin < 4
     multithread = false;
 end
 
