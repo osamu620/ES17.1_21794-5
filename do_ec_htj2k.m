@@ -1,4 +1,4 @@
-function [numbytes, type] = do_ec_htj2k(type, TRANSFORMBLOCK, ohtj2kpath)
+function [numbytes, type] = do_ec_htj2k(type, TRANSFORMBLOCK, ohtj2kpath, multithread)
 %
 % Usage: [numbytes, time] = do_ec_htj2k(type, TRANSFORMBLOCK, path-to-codec)
 %
@@ -16,10 +16,18 @@ elseif strcmpi("high", type)
 else
     error('input arg shall be "low" or "medium" or "high');
 end
+
 if nargin < 3
     ohtj2kpath = "/Users/osamu/Documents/Clone/WG1/OpenHTJ2K/build-relwithdebinfo/bin";
+    multithread = false;
 end
+
 j2kop = 'Creversible=yes Clevels=0 Cprecincts="{256,256}" Corder="RPCL"';
+if multithread == true
+    j2kop = sprintf("%s -numthread 0", j2kop);
+else
+    j2kop = sprintf("%s -numthread 1", j2kop);
+end
 
 for i = 1:16
     for j = 1:16
